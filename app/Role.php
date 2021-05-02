@@ -1,14 +1,25 @@
 <?php
 
 namespace App;
-use App\User;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    //
+         protected $fillable = ['name'];
+   
     public function users()
     {
-        return $this->hasMany(User::class)->withTimestamps();
-    }
+      
+   
+     return $this->belongsToMany(User::class)->withTimestamps();
+
+    	 }
+    	   public function permissions()
+    {
+      
+   
+     return $this->belongstoMany(Permission::class)->withTimestamps();
+
+         }
 }

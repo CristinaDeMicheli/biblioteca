@@ -20,6 +20,10 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        'Bibliotecario' => \App\Http\Middleware\Bibliotecario::class,
+        'Usuario' => \App\Http\Middleware\Usuario::class,
+];
+];
     ];
 
     /**
