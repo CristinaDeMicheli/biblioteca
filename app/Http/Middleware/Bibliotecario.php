@@ -17,9 +17,9 @@ class Bibliotecario
     public function handle($request, Closure $next)
     {
         
-       //
+       //en esta parte va la funcion de condicion que tiene q cumplir para permitir la visualizacion de la ruta o no, como no termine de declarar como asignar los roles a los user queda comentado
         //if (auth()->check() && auth()->user()->role()->'Bibliotecario')
-//if (auth()->check() && auth()->user()->hasRole('biblioteca')
+     //if (auth()->check() && auth()->user()->hasRole('biblioteca')
         return $next($request);
 
     return redirect('/');

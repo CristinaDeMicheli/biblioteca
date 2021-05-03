@@ -20,7 +20,7 @@ use App\Permission;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//ACA VAN LAS RUTAS PARA WEB, PARA VER LAS RUTAS DE API IR A api.php
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 

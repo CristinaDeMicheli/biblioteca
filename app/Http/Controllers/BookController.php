@@ -43,9 +43,9 @@ class BookController extends Controller
       public function BookPrestado(Request $request, Book $book)
     {
         //update Book(id,name,description,'Disponible')
-         //
+         //busco el libro a actualizar
         $book = Book::findOrFail($request->id);
-
+        //actualizo
         $book->name = $request->name;
         $book->description = $request->description;
         $book->estado = 'prestado'->estado;

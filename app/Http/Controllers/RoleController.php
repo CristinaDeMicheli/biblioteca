@@ -20,10 +20,8 @@ class RoleController extends Controller
      public function store(Request $request)
     {
         //
-         $role = new Book();
+         $role = new Role();
         $role->name = $request->name;
-       
-
         $role->save();
        
    
