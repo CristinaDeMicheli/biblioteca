@@ -18,16 +18,38 @@ use App\Permission;
 |
 */
 
+ //Route::get('/login/', 'LoginController@____');
+ //     Route::get('/login/', 'RegisterController@____');
+      
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 Route::group(['middleware' => 'Usuario'], function () {
-    Route::get('/Usuario/ejemplo', 'Usuario\EjemploController@index');
-    Route::get('/Usuario/ejemplo/{id}', 'Usuario\EjemploController@edit');
+	
+  Route::get('/book/Disponible', 'BookController@BookDisponible');
+    Route::get('/prestamo/Prestamo', 'PrestamoController@store');
 });
 
 Route::group(['middleware' => 'Bibliotecario'], function () {
-    Route::get('/Bibliotecario/ej', 'Bibliotecario\ejController@index');
-    Route::get('/Bibliotecario/ej/{id}', 'Admin\SeriesController@edit');
+	
+    Route::get('/book/Mostrar', 'BookController@index');
+    Route::put('/book/actualizar/', 'BookController@update');
+    Route::post('/book/guardar', 'BookController@store');
+
+	Route::delete('/book/borrar/{id}', 'BookController@destroy');
+
+    Route::get('/book/buscar', 'BookController@show');
+
+	Route::get('/book/Disponible', 'BookController@BookDisponible');
+
+	Route::get('/book/Regresar', 'BookController@RegresarBook');
+
+    Route::get('/prestamo/PrestamosYUser', 'PrestamoController@PestamosYUsers');
+   Route::get('/prestamo/Editar', 'PrestamoController@update');
+
+
+
 });
+
+

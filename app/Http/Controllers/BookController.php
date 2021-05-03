@@ -36,10 +36,38 @@ class BookController extends Controller
     {
         //if libro(estado)='Disponible'
         //mostrar
+        //Book $book
+        $book = Book::findOrFail(estado->'disponible');
+        return $book;
     }
-    public function RegresarBook()
+      public function BookPrestado(Request $request, Book $book)
     {
         //update Book(id,name,description,'Disponible')
+         //
+        $book = Book::findOrFail($request->id);
+
+        $book->name = $request->name;
+        $book->description = $request->description;
+        $book->estado = 'prestado'->estado;
+
+        $book->save();
+
+        return $book;
+        //Esta función actualizará el libro que hayamos seleccionado
+    public function RegresarBook(Request $request, Book $book)
+    {
+        //update Book(id,name,description,'Disponible')
+         //
+        $book = Book::findOrFail($request->id);
+
+        $book->name = $request->name;
+        $book->description = $request->description;
+        $book->estado = 'disponible'->estado;
+
+        $book->save();
+
+        return $book;
+        //Esta función actualizará el libro que hayamos seleccionado
 
     }
     /**

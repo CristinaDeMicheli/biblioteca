@@ -3,7 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
-
+use User;
+use Role;
 class Bibliotecario
 {
     /**
@@ -15,7 +16,10 @@ class Bibliotecario
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->'Bibliotecario')
+        
+       //
+        //if (auth()->check() && auth()->user()->role()->'Bibliotecario')
+//if (auth()->check() && auth()->user()->hasRole('biblioteca')
         return $next($request);
 
     return redirect('/');

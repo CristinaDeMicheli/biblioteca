@@ -23,8 +23,8 @@ class Kernel extends HttpKernel
         'Bibliotecario' => \App\Http\Middleware\Bibliotecario::class,
         'Usuario' => \App\Http\Middleware\Usuario::class,
 ];
-];
-    ];
+//];
+  //  ];
 
     /**
      * The application's route middleware groups.

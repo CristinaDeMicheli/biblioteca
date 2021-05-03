@@ -3,7 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
-
+use User;
+use Role;
 class Usuario
 {
     /**
@@ -15,7 +16,7 @@ class Usuario
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->'Usuario')
+       // if (auth()->check() && auth()->user()->role()->'Usuario')
         return $next($request);
 
     return redirect('/');

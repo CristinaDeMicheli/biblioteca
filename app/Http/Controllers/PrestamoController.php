@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Prestamo;
+use App\User;
+use App\Book;
 
 class PrestamoController extends Controller
 {
@@ -30,7 +32,11 @@ public function index()
 
   public function PrestamosYUsers()
     {
+        
         //Prestamo->id->user->name  mostrar prestamos con nombre de socios
+        $prestamo = Prestamo::all();
+
+        return view("prestamo.lista", compact('user'));
     }
     /**
      * Store a newly created resource in storage.
@@ -93,7 +99,7 @@ public function index()
         $prestamo = Prestamo::findOrFail($id);
         $prestamo->user_id = $request->user_id;
        $prestamo->book_id = $request->book_id;
-     //    $prestamo->fecha = $request->fecha;
+        $prestamo->fecha = $request->fecha;
 
         $prestamo->save();
 //$prestamo->update($request->all());
