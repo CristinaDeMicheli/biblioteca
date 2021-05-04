@@ -22,6 +22,8 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         'Bibliotecario' => \App\Http\Middleware\Bibliotecario::class,
         'Usuario' => \App\Http\Middleware\Usuario::class,
+        'cors' => \App\Http\Middleware\Cors::class,
+        'jwt.verify' => \App\Http\Middleware\JwtMiddleware::class,
 ];
 //];
   //  ];
