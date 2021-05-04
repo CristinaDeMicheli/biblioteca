@@ -20,10 +20,8 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        'Bibliotecario' => \App\Http\Middleware\Bibliotecario::class,
-        'Usuario' => \App\Http\Middleware\Usuario::class,
-        'cors' => \App\Http\Middleware\Cors::class,
-        'jwt.verify' => \App\Http\Middleware\JwtMiddleware::class,
+         'cors' => \App\Http\Middleware\Cors::class,
+        
 ];
 //];
   //  ];
@@ -68,5 +66,9 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'Bibliotecario' => \App\Http\Middleware\Bibliotecario::class,
+        'Usuario' => \App\Http\Middleware\Usuario::class,
+       
+        'jwt.verify' => \App\Http\Middleware\JwtMiddleware::class,
     ];
 }
