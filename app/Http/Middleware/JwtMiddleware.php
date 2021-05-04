@@ -8,6 +8,7 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 use Tymon\JWTAuth\Http\Middleware\BaseMiddleware;
+use Closure;
 
 class JwtMiddleware
 {
@@ -18,6 +19,7 @@ class JwtMiddleware
 * @param \Closure $next
 * @return mixed
 */
+
 public function handle($request, Closure $next)
 {
 try {
