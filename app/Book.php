@@ -10,12 +10,12 @@ class Book extends Model
     protected $fillable = ['name', 'description', 'estado'];
 
 
-      public function prestamos()
-    {
+     public function prestamos()
+   {
       
    
      return $this->hasOne(Prestamo::class)->withTimestamps();
 
-    	 }
+   	 }
        
 }

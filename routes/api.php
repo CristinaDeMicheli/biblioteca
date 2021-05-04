@@ -21,9 +21,18 @@ use App\Permission;
  //Route::get('/login/', 'LoginControllen');
  
       
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+      //En esta sección se crearán los endpoints para nuestra aplicación,
+      //Todas las rutas dentro de api.php tendrán el prefijo /api/
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+  //  return $request->user();
+//});
+
+Route::post('register', 'UserController@register');
+Route::post('login', 'UserController@authenticate');
+
+Route::group(['middleware' => ['jwt.verify']], function() {
+Route::get('user', 'UserController@getAuthenticatedUser');
+});//
 
 Route::group(['middleware' => 'Usuario'], function () { //solo user
 	//book
@@ -60,3 +69,4 @@ Route::group(['middleware' => 'Bibliotecario'], function () { //solo rol bibliot
 });
 
 
+//});

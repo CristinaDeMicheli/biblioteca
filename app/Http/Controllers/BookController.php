@@ -37,7 +37,7 @@ class BookController extends Controller
         //if libro(estado)='Disponible'
         //mostrar
         //Book $book
-        $book = Book::findOrFail(estado->'disponible');
+   //     $book = Book::findOrFail(estado->'disponible');
         return $book;
     }
       public function BookPrestado(Request $request, Book $book)
@@ -54,6 +54,7 @@ class BookController extends Controller
 
         return $book;
         //Esta función actualizará el libro que hayamos seleccionado
+  }
     public function RegresarBook(Request $request, Book $book)
     {
         //update Book(id,name,description,'Disponible')
@@ -77,7 +78,11 @@ class BookController extends Controller
      */
      public function store(Request $request)
     {
-        //
+        //Ej
+       // $validatedData = $request->validate([
+//'title' => 'required|string|unique:articles|max:255',
+//'body' => 'required',
+]);
          $book = new Book();
         $book->name = $request->name;
         $book->description = $request->description;
@@ -85,7 +90,7 @@ class BookController extends Controller
 
         $book->save();
         //Esta función guardará libros
-   
+       return response()->json($book, 201);
     }
 
     /**
@@ -94,7 +99,7 @@ class BookController extends Controller
      * @param  \App\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show(Book $book)
     {
         //Book $book
         $book = Book::findOrFail($request->id);
@@ -132,8 +137,9 @@ class BookController extends Controller
 
         $book->save();
 
-        return $book;
+       // return $book;
         //Esta función actualizará el libro que hayamos seleccionado
+        return response()->json($book, 201);
        
     }
 
@@ -143,12 +149,12 @@ class BookController extends Controller
      * @param  \App\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy(Book $book)
     {
         //Book $book
           $book = Book::destroy($request->id);
-        return $book;
+       // return $book;
         //Esta función obtendra el id del libro que hayamos seleccionado y la borrará de nuestra BD
- 
+        return response()->json(null, 204);
     }
 }
